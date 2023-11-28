@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+.container{
+    display: flex;
+    flex: 1;
+}
+article{
+    flex: 1;
+    order: 1;
+}
+nav{
+    flex: 0 0 20vw;
+    background: #03DAC5;
+    order: 3;
+    text-align: center;
+}
+aside{
+    flex: 0 0 20vw;
+    background: pink;  
+    order: 2;
+    text-align: center;
+}
+header, footer{
+    background: khaki;
+    height: 20vh;
+}
+header, footer, nav, article{
+    padding: 1em;
+}
