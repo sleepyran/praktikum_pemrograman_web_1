@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkaran</title>
+</head>
+<body>
+    <h1>Menghitung Luas dan Keliling Lingkaran</h1>
+    <div>
+        <label for="jarijari">Masukan Jari-Jari Lingkaran</label>
+        <input type="number" id="jarijari">
+        <button onclick="hitunglingkaran()">Hitung</button>
+    </div>
+    <hr>
+    <p>
+        Luas Lingkaran: <span id="hasill">0</span>
+        <br>
+        Keliling Lingkaran: <span id="hasilk">0</span>
+    </p>
+    <script>
+        function hitunglingkaran(){
+            let jarijari = 
+            document.getElementById("jarijari").value
+            const phi = 3.14
+            // Luas Lingkaran
+            let luas = phi * jarijari * jarijari
+            // Keliling Lingkaran
+            let keliling = 2 * phi * jarijari
+            
+            let hasill = 
+            document.getElementById("hasill")
+            let hasilk = 
+            document.getElementById("hasilk")
+
+            hasill.innerHTML = luas
+            hasilk.innerHTML = keliling
+        }
+    </script>
+</body>
+</html>

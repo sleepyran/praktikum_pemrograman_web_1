@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Mata Uang</title>
+</head>
+<body>
+    <h1>Konversi Mata Uang</h1>
+    <div>
+        <label for="rupiah">Masukan Jumlah Uang Dalam Bentuk Rupiah</label>
+        <input type="number" id="rupiah" placeholder="Masukan Jumlah Uang">
+        <button onclick="hitungkurs()">Konversi</button>
+    </div>
+    <p>
+        Nilai Dalam Dollar Amerika Serikat: <span id="dollar"></span>
+    </p>
+    <script>
+        function hitungkurs() {
+          // Kurs 1USD = 15.491 Rupiah
+          let kurs = 15491;
+    
+          let uangRupiah = document.getElementById("rupiah").value;
+          let dollar = uangRupiah / kurs;
+    
+          // Menampilkan hasil konversi
+          document.getElementById("dollar").innerText = dollar + "  dollar";
+        }
+    </script>
+
+
+</body>
+</html>
