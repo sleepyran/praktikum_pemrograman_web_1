@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hewan</title>
+    <script>
+        function image_picker(){
+            const list_image = ["Pinguin.png", "Kangguru.png", "Landak.png"];
+            let pilihan = document.getElementById("opsi").value;
+
+            if( pilihan == "pinguin" ){
+                let select = list_image[0];
+                document.getElementById("gambar").src = `img/Pinguin.png`;
+            }
+
+            if( pilihan == "kangguru"){
+                let select = list_image[1];
+                document.getElementById("gambar").src = `img/Kangguru.png`;
+            }
+
+            if( pilihan == "landak"){
+                let select = list_image[2]; 
+                document.getElementById("gambar").src = `img/Landak.png`;
+            }
+            
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Image Picker</h1>
+
+    <select name="" id="opsi" onchange="image_picker()">
+        <option value="">Silahkan Pilih Gambar</option>
+        <option value="pinguin"> Pinguin </option>
+        <option value="kangguru"> Kangguru </option>
+        <option value="landak"> Landak </option>
+    </select>
+
+    <div class="container">
+        <img id="gambar">
+    </div>
+
+</body>
+</html>

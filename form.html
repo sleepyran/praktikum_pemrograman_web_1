@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <form id="form">
+        <label for="nama"> Nama Pelanggan: </label>
+        <input type="text" id="nama" name="nama" maxlength="30"> <br><br>
+        <label for="nama"> Email: </label>
+        <input type="email" id="email" name="email"> <br><br>
+        <label for="nama"> Jam Keberangkatan: </label>
+        <input type="time" id="jam" name="jam"> <br><br>
+        <label for="nama"> Tujuan Keberangkatan: </label>
+        <input type="text" id="tujuan" name="tujuan"> <br><br>
+        <label for="nama"> Jumlah Tiket: </label>
+        <input type="number" id="jumlah" name="jumlah"> <br><br>
+        <label for="submit"></label>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+
+    <script>
+        const form = document.getElementById('formValidation');
+        form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    
+        const nama= form.nama.value;
+        const email = form.email.value;
+        const jam = form.jam.value;
+        const tujuan = form.tujuan.value;
+        const jumlah = form.jumlah.value;
+    
+        // Validasi nama pelanggan
+        if (!nama) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Nama pelanggan harus diisi!';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.nama.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.nama.parentNode.insertBefore(errorMessage, form.nama.nextSibling);
+            form.nama.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+            return;
+        }
+    
+        // Validasi email
+        if (!email) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Email harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.email.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.email.parentNode.insertBefore(errorMessage, form.email.nextSibling);
+            form.email.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+            return;
+        }
+    
+        // Validasi jam keberangkatan
+        if (!jam) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Jam keberangkatan harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.jam.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.jam.parentNode.insertBefore(errorMessage, form.jam.nextSibling);
+            form.jam.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+            return;
+        }
+    
+        // Validasi tujuan keberangkatan
+        if (!tujuan) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Tujuan keberangkatan harus diisi';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.tujuan.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.tujuan.parentNode.insertBefore(errorMessage, form.tujuan.nextSibling);
+            form.tujuan.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+
+            return;
+        }
+    
+        // Validasi jumlah tiket
+        if (!jumlah || jumlah < 1 || jumlah > 10) {
+            const errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Jumlah tiket harus diisi dengan bilangan bulat antara 1-10';
+            errorMessage.style.color = 'red';
+
+            const checkErr = form.jumlah.parentNode.querySelector('div');
+            if (!checkErr) {
+            form.jumlah.parentNode.insertBefore(errorMessage, form.jumlah.nextSibling);
+            form.jumlah.focus();
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 2500);
+            }
+
+            return;
+        }
+    
+        // Tampilkan data yang telah diinput oleh pengguna
+        const formData = `
+            Nama Pelanggan: ${nama}
+            Email: ${email}
+            Jam Keberangkatan: ${jam}
+            Tujuan Keberangkatan: ${tujuan}
+            Jumlah Tiket: ${jumlah}
+        `;
+    
+        document.body.innerHTML += `<pre>${formData}</pre>`;
+    
+        // Tampilkan pesan sukses
+        alert('Data berhasil dikirim');
+        });
+    </script>
+</body>
+</html>
